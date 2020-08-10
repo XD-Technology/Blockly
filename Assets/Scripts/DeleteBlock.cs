@@ -15,7 +15,6 @@ namespace LastPlayer.Blockly
 
         public void OnDrop(PointerEventData eventData)
         {
-
             var blockData = eventData.pointerDrag.GetComponent<IBlockData>();
             if (!blockData.CancelEvent)
             {

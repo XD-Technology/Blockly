@@ -16,6 +16,7 @@ namespace LastPlayer.Blockly
                 if (BlockToHandle != null) Destroy(BlockToHandle);
                 BlockToHandle = Instantiate(block, drapParent);
                 BlockToHandle.transform.position = transform.position;
+                BlockToHandle.GetComponentInChildren<Image>().raycastTarget = false;
                 CancelEvent = false;
             }
             else CancelEvent = true;
@@ -33,7 +34,7 @@ namespace LastPlayer.Blockly
         {
             if (!CancelEvent && BlockToHandle != null)
             {
-                BlockToHandle.GetComponent<Image>().raycastTarget = true;
+                BlockToHandle.GetComponentInChildren<Image>().raycastTarget = true;
                 if (NewParent == null) BlockToHandle.transform.SetParent(designParent);
                 else BlockToHandle.transform.SetParent(NewParent);
                 NewParent = null;
