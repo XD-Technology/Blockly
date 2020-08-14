@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveAction : Action
+namespace LastPlayer
 {
-    public MoveActionEvent MoveActionEvent;
-
-    public override void Execute()
+    public class MoveAction : Action
     {
-        base.Execute();
+        public MoveActionEvent MoveActionEvent;
 
-        PlayerController.Instance.Move(MoveActionEvent);
-    }
+        public override void Execute()
+        {
+            base.Execute();
 
-    public void OnValueChange_ActionEvent(int value)
-    {
-        MoveActionEvent = (MoveActionEvent)value;
+            PlayerController.Instance.Move(MoveActionEvent);
+        }
+
+        public void OnValueChange_ActionEvent(int value)
+        {
+            MoveActionEvent = (MoveActionEvent)value;
+        }
     }
 }

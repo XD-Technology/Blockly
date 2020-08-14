@@ -2,32 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoopAction : Action
+namespace LastPlayer
 {
-    public List<Action> Actions = new List<Action>();
 
-    private int count;
-
-    private void Start()
+    public class LoopAction : Action
     {
-        count = 1;
-    }
+        public List<Action> Actions = new List<Action>();
 
-    public override void Execute()
-    {
-        base.Execute();
+        private int count;
 
-        for (int i = 0; i < count; i++)
+        private void Start()
         {
-            for (int j = 0; j < Actions.Count; j++)
+            count = 1;
+        }
+
+        public override void Execute()
+        {
+            base.Execute();
+
+            for (int i = 0; i < count; i++)
             {
-                Actions[j].Execute();
+                for (int j = 0; j < Actions.Count; j++)
+                {
+                    Actions[j].Execute();
+                }
             }
         }
-    }
 
-    public void OnValueChange_CountEvent(string value)
-    {
-        int.TryParse(value, out count);
+        public void OnValueChange_CountEvent(string value)
+        {
+            int.TryParse(value, out count);
+        }
     }
 }

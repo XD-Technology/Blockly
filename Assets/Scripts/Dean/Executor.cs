@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Executor : MonoBehaviour, IDropHandler
+namespace LastPlayer
 {
-    public List<Action> actions = new List<Action>();
-
-    public void Execute()
+    public class Executor : MonoBehaviour, IDropHandler
     {
-        for (int i = 0; i < actions.Count; i++)
+        public List<Action> actions = new List<Action>();
+
+        public void Execute()
         {
-            actions[i].Execute();
+            for (int i = 0; i < actions.Count; i++)
+            {
+                actions[i].Execute();
+            }
         }
-    }
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        Debug.Log("Drop");
+        public void OnDrop(PointerEventData eventData)
+        {
+            Debug.Log("Drop");
+        }
     }
 }

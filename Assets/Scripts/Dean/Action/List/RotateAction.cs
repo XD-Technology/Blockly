@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateAction : Action
+namespace LastPlayer
 {
-    public RotateActionEvent RotateActionEvent;
-
-    public override void Execute()
+    public class RotateAction : Action
     {
-        base.Execute();
+        public RotateActionEvent RotateActionEvent;
 
-        PlayerController.Instance.Rotate(RotateActionEvent);
-    }
+        public override void Execute()
+        {
+            base.Execute();
 
-    public void OnValueChange_ActionEvent(int value)
-    {
-        RotateActionEvent = (RotateActionEvent)value;
+            PlayerController.Instance.Rotate(RotateActionEvent);
+        }
+
+        public void OnValueChange_ActionEvent(int value)
+        {
+            RotateActionEvent = (RotateActionEvent)value;
+        }
     }
 }

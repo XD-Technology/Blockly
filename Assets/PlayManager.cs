@@ -1,15 +1,19 @@
-﻿using System.Collections;
+﻿using LastPlayer;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayManager : MonoBehaviour
+namespace LastPlayer
 {
-    public static PlayManager Instance;
-
-    public Transform DropParent;
-
-    private void Awake()
+    public class PlayManager : MonoBehaviour
     {
-        Instance = this;
+        public static PlayManager Instance;
+
+        public Transform DropParent;
+
+        private void Awake()
+        {
+            Instance = this;
+        }
     }
 }
