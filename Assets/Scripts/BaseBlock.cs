@@ -15,6 +15,7 @@ namespace LastPlayer.Blockly
         public bool CancelEvent { get; protected set; }
         public virtual GameObject BlockToHandle { get; protected set; }
         public virtual Transform NewParent { get; set; }
+        public BlockType BlockType;
 
         protected void Awake()
         {
@@ -42,5 +43,13 @@ namespace LastPlayer.Blockly
 
         bool Execute();
         string GenerateCode();
+    }
+
+    public enum BlockType
+    { 
+        MoveForward,
+        TurnRight,
+        TurnLeft,
+        Loop
     }
 }
