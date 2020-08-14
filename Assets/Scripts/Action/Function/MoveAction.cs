@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace LastPlayer.DeanBlockly
+namespace LastPlayer.Blockly
 {
     public sealed class MoveAction : Action, IBeginDragHandler, IDragHandler, IEndDragHandler
     {

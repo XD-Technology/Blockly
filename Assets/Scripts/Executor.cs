@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-namespace LastPlayer.DeanBlockly
+namespace LastPlayer.Blockly
 {
     public class Executor : MonoBehaviour, IDropHandler, IActionExecuter
     {
@@ -10,6 +11,7 @@ namespace LastPlayer.DeanBlockly
         [SerializeField] private Transform holder = null;
         [SerializeField] private ParentTypeBlock type;
         public ParentTypeBlock Type => ParentTypeBlock.Executer;
+        public ContentSizeFitter Fitter { get; private set; }
 
         public void Execute()
         {

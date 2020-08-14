@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace LastPlayer.DeanBlockly
+namespace LastPlayer.Blockly
 {
     public class DeleteBlock : MonoBehaviour, IDropHandler
     {

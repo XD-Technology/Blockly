@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LastPlayer.DeanBlockly
+namespace LastPlayer.Blockly
 {
     public interface IBlockData
     {

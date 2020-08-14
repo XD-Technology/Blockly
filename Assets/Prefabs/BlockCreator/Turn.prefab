@@ -96,6 +96,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7253260851877245655}
     m_Modifications:
+    - target: {fileID: 2021346602106399961, guid: fea4b06522d36c54986bcf01ea73bafc,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3359527270418742045, guid: fea4b06522d36c54986bcf01ea73bafc,
         type: 3}
       propertyPath: m_AnchorMin.y

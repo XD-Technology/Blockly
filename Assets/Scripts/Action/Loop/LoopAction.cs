@@ -4,24 +4,23 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace LastPlayer.DeanBlockly
+namespace LastPlayer.Blockly
 {
     public class LoopAction : Action, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IActionExecuter
     {
         [SerializeField] private List<Action> actions = new List<Action>();
         [SerializeField] private Transform holder = null;
+        [SerializeField] private ParentTypeBlock type;
 
         private Vector2 offset;
         private int count;
-        private ContentSizeFitter fitter;
-
-        [SerializeField] private ParentTypeBlock type;
         public ParentTypeBlock Type => ParentTypeBlock.Other;
+        public ContentSizeFitter Fitter { get; private set; }
 
         private void Start()
         {
             count = 1;
-            fitter = GetComponent<ContentSizeFitter>();
+            Fitter = GetComponent<ContentSizeFitter>();
         }
 
         public override void Execute()
@@ -89,10 +88,10 @@ namespace LastPlayer.DeanBlockly
                     switch (type.Type)
                     {
                         case ParentTypeBlock.Executer:
-                            fitter.enabled = false;
+                            Fitter.enabled = false;
                             break;
                         case ParentTypeBlock.Design:
-                            fitter.enabled = true;
+                            Fitter.enabled = true;
                             break;
                         case ParentTypeBlock.Other:
                             break;

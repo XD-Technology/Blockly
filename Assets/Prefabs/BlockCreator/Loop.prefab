@@ -112,6 +112,15 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1443269773, guid: 479ad125c6388bc4cb5a497339cd0916, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 167072189439602371, guid: 479ad125c6388bc4cb5a497339cd0916,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 427509007317198959, guid: 479ad125c6388bc4cb5a497339cd0916,
         type: 3}
       propertyPath: m_AnchorMin.y

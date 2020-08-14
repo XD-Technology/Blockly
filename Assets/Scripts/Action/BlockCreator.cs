@@ -1,9 +1,9 @@
-﻿using LastPlayer.DeanBlockly;
+﻿using LastPlayer.Blockly;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace LastPlayer.DeanBlockly
+namespace LastPlayer.Blockly
 {
     public class BlockCreator : Action, IDragHandler, IEndDragHandler, IBeginDragHandler
     {
@@ -17,6 +17,8 @@ namespace LastPlayer.DeanBlockly
                 BlockToHandle = Instantiate(block, dragParent);
                 BlockToHandle.transform.position = transform.position;
                 BlockToHandle.GetComponentInChildren<Image>().raycastTarget = false;
+                var actionExecuter = BlockToHandle.GetComponentInChildren<IActionExecuter>(true);
+                if (actionExecuter != null) actionExecuter.Fitter.enabled = true;
                 CancelEvent = false;
             }
             else CancelEvent = true;
@@ -41,6 +43,7 @@ namespace LastPlayer.DeanBlockly
                     var blockData = BlockToHandle.GetComponentInChildren<IBlockData>(true);
                     if (blockData != null) blockData.NewParent = NewParent;
                     BlockToHandle.transform.SetParent(NewParent);
+                    
                 }
                 NewParent = null;
                 BlockToHandle = null;
