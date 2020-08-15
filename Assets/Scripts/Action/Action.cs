@@ -14,7 +14,7 @@ namespace LastPlayer.Blockly
         public virtual GameObject BlockToHandle { get; protected set; }
         public virtual Transform NewParent { get; set; }
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             BlockToHandle = null;
             if (dragParent == null) dragParent = GameObject.Find("DropParent").transform;

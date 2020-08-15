@@ -17,10 +17,15 @@ namespace LastPlayer.Blockly
         public ParentTypeBlock Type => ParentTypeBlock.Other;
         public ContentSizeFitter Fitter { get; private set; }
 
+        protected override void Awake()
+        {
+            base.Awake();
+            Fitter = GetComponent<ContentSizeFitter>();
+        }
+
         private void Start()
         {
             count = 1;
-            Fitter = GetComponent<ContentSizeFitter>();
         }
 
         public override void Execute()

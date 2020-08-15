@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4059058683831976951}
   - component: {fileID: 4059058683831976952}
   m_Layer: 5
-  m_Name: BlockCreator
+  m_Name: Move
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,6 +199,11 @@ PrefabInstance:
     - target: {fileID: 2525709894128673464, guid: 4e8d42d5217a82346a1bfb0b836cb517,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628920095042127144, guid: 4e8d42d5217a82346a1bfb0b836cb517,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4628920095042127145, guid: 4e8d42d5217a82346a1bfb0b836cb517,

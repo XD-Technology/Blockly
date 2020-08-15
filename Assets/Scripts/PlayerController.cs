@@ -13,41 +13,43 @@ namespace LastPlayer.Blockly
         public UILineRenderer lineR;
 
         private Vector2 startPos;
+        private int index;
 
         private void Awake()
         {
             Instance = this;
-            transformR = GetComponent<RectTransform>();
             
         }
 
         private void Start()
         {
-            startPos = transformR.anchoredPosition;
+            //startPos = transformR.anchoredPosition;
             Init();
         }
 
         public void Init()
         {
-            transformR.anchoredPosition = startPos;
+            index = 0;
+            transformR.position = LevelController.grid[0].position;
             transform.rotation = Quaternion.identity;
             ClearPointList();
             AddNewPoint(transformR.localPosition.x, transformR.localPosition.y);
-            //AddNewPoint(transformR.offsetMin.x, transformR.offsetMin.y);
         }
 
         internal void Move(MoveActionEvent moveActionEvent)
         {
-            if (moveActionEvent == MoveActionEvent.Forward) transformR.Translate(Vector3.up * MoveDistance);
-            else transformR.Translate(Vector3.down * MoveDistance);
+            if (moveActionEvent == MoveActionEvent.Forward)
+            {
+                //transform.Translate(Vector3.up * MoveDistance, Space.World);
+                index++;
+                if (index >= LevelController.grid.Count) index = 0;
 
-            //if (moveActionEvent == MoveActionEvent.Forward) transformR.anchoredPosition = new Vector2(transformR.anchoredPosition.x, transformR.offsetMax.y + 800);
-            //else transformR.offsetMax = new Vector2(transformR.offsetMax.x, transformR.offsetMax.y - 800);
+                transformR.position = LevelController.grid[index].position;
+            }
+            else transform.Translate(Vector3.down * MoveDistance);
 
-            //float x = transformR.offsetMin.x;
-            //float y = transformR.offsetMin.y;
-            //AddNewPoint((float)x, (float)y);
             AddNewPoint(transformR.localPosition.x, transformR.localPosition.y);
+            LevelController.AddVisitedPoint(LevelController.grid[index]);
         }
 
         internal void Rotate(RotateActionEvent rotateActionEvent)
